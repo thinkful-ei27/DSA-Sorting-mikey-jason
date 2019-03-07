@@ -122,29 +122,27 @@ function randomSort(orderedArr, counter = 0) {
 
 
 //  20 books
-
-// removes spaces, to lowercase.
-
+// strings run
 const unorderedBooksArr = ['Idioms are a wonderful part of the English',
-  'language that give it a lot of flavor',
+  'Language that give it a lot of flavor',
   'They force people to know more than',
-  'the literal meaning of words. Idioms are',
-  'commonly used phrases which have',
-  'a meaning completely different than',
-  'their literal meaning. This can be',
-  'quite confusing to those who',
-  'aren\'t familiar with the idiom',
-  'and those who are studying English',
+  'The literal meaning of words. Idioms are',
+  'Commonly used phrases which have',
+  'T meaning completely different than',
+  'Their literal meaning. This can be',
+  'Quite confusing to those who',
+  'Aren\'t familiar with the idiom',
+  'And those who are studying English',
   'Using this tool can be excellent',
-  'practice for students studying',
+  'Practice for students studying',
   'English as a second',
-  'language because it gives the',
-  'literal meaning of each',
-  'phrase. This allows them',
-  'to see the phrase and its',
-  'meaning at the same time',
+  'Language because it gives the',
+  'Literal meaning of each',
+  'Phrase. This allows them',
+  'To see the phrase and its',
+  'Toad Meaning at the same time',
   'While there are long idiom',
-  'lists available online, trying'
+  'Lists available online, trying'
 ];
 
 function normalizeTitles(array) {
@@ -159,7 +157,7 @@ function main() {
   //console.log(mSort(array));
   // console.log(bucketSort(newDataSet, 15));
   // console.log(randomSort(mSort(array)));
-  console.log(mSort(normalizeTitles(unorderedBooksArr)));
+  console.log(mSort(unorderedBooksArr));
 }
 
 main();
