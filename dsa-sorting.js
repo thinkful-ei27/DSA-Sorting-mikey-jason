@@ -60,6 +60,8 @@ function merge(left, right, arr) {
   let rightIndex = 0;
   let outputIndex = 0;
   while (leftIndex < left.length && rightIndex < right.length) {
+
+
     if (left[leftIndex] < right[rightIndex]) {
       arr[outputIndex++] = left[leftIndex++];
     }
@@ -77,53 +79,89 @@ function merge(left, right, arr) {
 
 }
 
-const newDataSet = [ 3, 5, 8, 12, 2, 1, 15];
+const newDataSet = [3, 5, 8, 12, 2, 1, 15];
 
 
-function bucketSort(arr, max){
+function bucketSort(arr, max) {
   let end = arr.length;
 
-  const newArray =[];
-  for(let i = 0; i < max; i++){
+  const newArray = [];
+  for (let i = 0; i < max; i++) {
     newArray[i] = 'empty';
-    }
+  }
 
-  for(let i = 0; i < end; i++){
-  newArray[arr[i]] = 'held';
+  for (let i = 0; i < end; i++) {
+    newArray[arr[i]] = arr[i];
   }
   return newArray;
 }
 
+
+
+
 //random sorter
- //input: [1,2,3,4,5,6,7,8,9]
- //output: [6,1,8,3,4,5,2,9,7]
+//input: [1,2,3,4,5,6,7,8,9]
+//output: [6,1,8,3,4,5,2,9,7]
 
- //take the array
- //start with a counter at 0
- //make sure counter is less than length-1
- //choose random array position floor(random % array.length)
- //swap
- // advance counter
+//take the array
+//start with a counter at 0
+//make sure counter is less than length-1
+//choose random array position floor(random % array.length)
+//swap
+// advance counter
 
- function randomSort(orderedArr, counter=0){
-  while(counter < orderedArr.length){
-    let switchSpot = Math.floor(Math.random()*orderedArr.length);
+function randomSort(orderedArr, counter = 0) {
+  while (counter < orderedArr.length) {
+    let switchSpot = Math.floor(Math.random() * orderedArr.length);
     swap(orderedArr, counter, switchSpot);
     counter++;
     return randomSort(orderedArr, counter);
   }
   return orderedArr;
- }
+}
 
 
+//  20 books
 
+// removes spaces, to lowercase.
 
+const unorderedBooksArr = ['Idioms are a wonderful part of the English',
+  'language that give it a lot of flavor',
+  'They force people to know more than',
+  'the literal meaning of words. Idioms are',
+  'commonly used phrases which have',
+  'a meaning completely different than',
+  'their literal meaning. This can be',
+  'quite confusing to those who',
+  'aren\'t familiar with the idiom',
+  'and those who are studying English',
+  'Using this tool can be excellent',
+  'practice for students studying',
+  'English as a second',
+  'language because it gives the',
+  'literal meaning of each',
+  'phrase. This allows them',
+  'to see the phrase and its',
+  'meaning at the same time',
+  'While there are long idiom',
+  'lists available online, trying'
+];
+
+function normalizeTitles(array) {
+  for (let i = 0; i < array.length; i++) {
+    array[i] = array[i].replace(/[^A-Za-z]/g, '').toLowerCase();
+  }
+  return array;
+}
 
 function main() {
-  let array = convert(dataset);
+  // let array = convert(dataset);
   //console.log(mSort(array));
-  //console.log(bucketSort(newDataSet, 15));
-  console.log(randomSort(mSort(array)));
+  // console.log(bucketSort(newDataSet, 15));
+  // console.log(randomSort(mSort(array)));
+  console.log(mSort(normalizeTitles(unorderedBooksArr)));
 }
 
 main();
+
+
