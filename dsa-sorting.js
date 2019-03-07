@@ -77,12 +77,53 @@ function merge(left, right, arr) {
 
 }
 
+const newDataSet = [ 3, 5, 8, 12, 2, 1, 15];
+
+
+function bucketSort(arr, max){
+  let end = arr.length;
+
+  const newArray =[];
+  for(let i = 0; i < max; i++){
+    newArray[i] = 'empty';
+    }
+
+  for(let i = 0; i < end; i++){
+  newArray[arr[i]] = 'held';
+  }
+  return newArray;
+}
+
+//random sorter
+ //input: [1,2,3,4,5,6,7,8,9]
+ //output: [6,1,8,3,4,5,2,9,7]
+
+ //take the array
+ //start with a counter at 0
+ //make sure counter is less than length-1
+ //choose random array position floor(random % array.length)
+ //swap
+ // advance counter
+
+ function randomSort(orderedArr, counter=0){
+  while(counter < orderedArr.length){
+    let switchSpot = Math.floor(Math.random()*orderedArr.length);
+    swap(orderedArr, counter, switchSpot);
+    counter++;
+    return randomSort(orderedArr, counter);
+  }
+  return orderedArr;
+ }
+
+
+
 
 
 function main() {
   let array = convert(dataset);
-  console.log(mSort(array));
-
+  //console.log(mSort(array));
+  //console.log(bucketSort(newDataSet, 15));
+  console.log(randomSort(mSort(array)));
 }
 
 main();
